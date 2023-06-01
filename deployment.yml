@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: app
+  template:
+    metadata:
+      labels:
+        type: app
+    spec:
+      containers:
+      - name: nodejs-app-container
+        image: shrouksamir11/task-img
+        ports:
+        - containerPort: 3000
